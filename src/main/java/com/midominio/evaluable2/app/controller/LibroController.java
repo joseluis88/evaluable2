@@ -106,5 +106,22 @@ public class LibroController {
 		}
 		return "redirect:/libro/listar";
 	}
+	
+	@GetMapping("/ver/{id}")
+	public String verPorId(@PathVariable Long id, @RequestParam(defaultValue = "0") int page, Model model,
+			RedirectAttributes flash) {
+
+		Libro libro = libroService.findOne(id);
+
+		if (libro == null) {
+			flash.addFlashAttribute("error", "Libro inexistente");
+			return "redirect:/libros/listar";
+		}
+
+		model.addAttribute("titulo", "Mostrando un Libro");
+		model.addAttribute("libro", libro);
+
+		return "libro/ver";
+	}
 
 }

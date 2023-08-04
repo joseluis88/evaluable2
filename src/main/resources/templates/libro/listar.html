@@ -25,7 +25,7 @@
 						th:href="@{/home}">Inicio</a></button>
 				<button class="my-3 btn btn-warning btn-lg"><a class="nav-link active" aria-current="page"
 						th:href="@{/libro/form}">Añadir Libro</a></button>
-
+						
 			</div>
 
 		</div>
@@ -61,7 +61,7 @@
 					<th class="text-white bg-primary text-center border border-5 align-middle">Foto</th>
 					<th class="text-white bg-primary text-center border border-5 align-middle">Editar</th>
 					<th class="text-white bg-primary text-center border border-5 align-middle">Borrar</th>
-					
+
 				</tr>
 			</thead>
 			<tbody>
@@ -73,7 +73,7 @@
 					<td class="bg-secondary text-center align-middle" th:text="${libro.genero}"></td>
 					<td class="bg-secondary text-center align-middle" th:text="${libro.numero_ejemplares}"></td>
 					<td class="bg-secondary text-center align-middle" th:text="${libro.ISBN}"></td>
-					<td class="bg-secondary text-center align-middle" th:text="${libro.foto}"></td>
+					<td class="bg-secondary text-center align-middle" th:href="@{/upload/ + 'libro.foto'}" th:text="${libro.foto}"></td>
 					<td class="bg-secondary text-center align-middle">
 						<a class="text-center rounded-pill btn btn-warning" th:href="@{/libro/form/} + ${libro.id}">
 							Editar
@@ -84,7 +84,7 @@
 							Borrar
 						</a>
 					</td>
-					
+
 				</tr>
 			</tbody>
 		</table>
