@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title th:text="${titulo}"></title>
+	<!-- Hoja de estilos de bootstrap enlazada vía CDN-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+	</link>
+
+</head>
+
+<body class="bg-secondary">
+	<!-- Navigation bar bootstrap -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid px-5">
+
+
+			<div>
+				<img th:src="@{/images/spring.png}" alt="Imagen de Spring para demo"></img>
+				<button class="my-3 btn btn-primary btn-lg"><a class="nav-link active" aria-current="page"
+						th:href="@{/home}">Inicio</a></button>
+				<button class="my-3 btn btn-warning btn-lg"><a class="nav-link active" aria-current="page"
+						th:href="@{/usuario/form}">Añadir Usuario</a></button>
+
+			</div>
+
+		</div>
+	</nav>
+
+	<!-- Todos los class son de bootstrap -->
+	<div class="container ">
+		<h1 class="text-white fw-bold" th:text="${titulo}"></h1>
+		<div class="alert alert-success delayed-div animate__animated animate__fadeOut" style="animation-delay: 2s"
+			th:if="${success != null}" th:text="${success}"></div>
+		<div class="alert alert-error delayed-div animate__animated animate__fadeOut" style="animation-delay: 2s"
+			th:if="${error != null}" th:text="${error}"></div>
+		<div class="alert alert-warning delayed-div animate__animated animate__fadeOut" style="animation-delay: 2s"
+			th:if="${warning != null}" th:text="${warning}"></div>
+		<div class="alert alert-info delayed-div animate__animated animate__fadeOut" style="animation-delay: 2s"
+			th:if="${info != null}" th:text="${info}"></div>
+		<div class="alert alert-success delayed-div animate__animated animate__fadeOut" style="animation-delay: 2s"
+			th:if="${warningDelete != null}" th:text="${warningDelete}">
+
+		</div>
+
+
+		<table class="table table-striped border border-5 text-center align-middle">
+			<thead>
+				<tr>
+					<th class="text-white bg-primary text-center border border-5 align-middle">Id</th>
+					<th class="text-white bg-primary text-center border border-5 align-middle">Nombre</th>
+					<th class="text-white bg-primary text-center border border-5 align-middle">Apellidos</th>
+					<th class="text-white bg-primary text-center border border-5 align-middle">Edad</th>
+					<th class="text-white bg-primary text-center border border-5 align-middle">Fecha Alta</th>
+					<th class="text-white bg-primary text-center border border-5 align-middle">Fecha Retirada Libro</th>
+					<th class="text-white bg-primary text-center border border-5 align-middle">Fecha Entrega Libro</th>
+					<th class="text-white bg-primary text-center border border-5 align-middle">Editar</th>
+					<th class="text-white bg-primary text-center border border-5 align-middle">Borrar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="usuario: ${usuarios}">
+					<td class="bg-info text-center border border-5 rounded-circle align-middle" th:text="${usuario.id}">
+					</td>
+					<td class="bg-secondary text-center align-middle" th:text="${usuario.nombre}"></td>
+					<td class="bg-secondary text-center align-middle" th:text="${usuario.apellidos}"></td>
+					<td class="bg-secondary text-center align-middle" th:text="${usuario.edad}"></td>
+					<td class="bg-secondary text-center align-middle" th:text="${usuario.fecha_alta}"></td>
+					<td class="bg-secondary text-center align-middle" th:text="${usuario.fecha_retirada_libro}"></td>
+					<td class="bg-secondary text-center align-middle" th:text="${usuario.fecha_entrega_libro}"></td>
+					<td class="bg-secondary text-center align-middle">
+						<a class="text-center rounded-pill btn btn-warning" th:href="@{/usuario/form/} + ${usuario.id}">
+							Editar
+						</a>
+					</td>
+					<td class="bg-secondary text-center">
+						<a class="text-center rounded-pill btn btn-danger"
+							th:href="@{/usuario/eliminar/} + ${usuario.id}">
+							Borrar
+						</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<nav th:replace="paginator-nav :: paginator"></nav>
+	</div>
+
+	<!-- Script de bootstrap enlazado vía CDN-->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
