@@ -19,13 +19,15 @@
 		<div class="container-fluid px-5">
 
 
-			<div>
-				<img th:src="@{/images/spring.png}" alt="Imagen de Spring para demo"></img>
+			<div class="container">
+				<img class="img-logo" th:src="@{/images/spring.png}" alt="Imagen de Spring para demo"></img>
 				<button class="my-3 btn btn-primary btn-lg"><a class="nav-link active" aria-current="page"
 						th:href="@{/home}">Inicio</a></button>
+				<button class="my-3 btn btn-success btn-lg"><a class="nav-link active" aria-current="page"
+						th:href="@{/usuario/listar}">Ver lista de usuarios</a></button>
 				<button class="my-3 btn btn-warning btn-lg"><a class="nav-link active" aria-current="page"
-						th:href="@{/libro/form}">Añadir Libro</a></button>
-						
+						th:href="@{/libro/form}">Añadir libro nuevo</a></button>
+
 			</div>
 
 		</div>
@@ -66,14 +68,16 @@
 			</thead>
 			<tbody>
 				<tr th:each="libro: ${libros}">
-					<td class="bg-info text-center border border-5 rounded-circle align-middle" th:text="${libro.id}">
+					<td class="bg-info text-center border border-5 align-middle" th:text="${libro.id}">
 					</td>
-					<td class="bg-secondary text-center align-middle" th:text="${libro.nombre}"></td>
-					<td class="bg-secondary text-center align-middle" th:text="${libro.autor}"></td>
-					<td class="bg-secondary text-center align-middle" th:text="${libro.genero}"></td>
-					<td class="bg-secondary text-center align-middle" th:text="${libro.numero_ejemplares}"></td>
-					<td class="bg-secondary text-center align-middle" th:text="${libro.ISBN}"></td>
-					<td class="bg-secondary text-center align-middle" th:href="@{/upload/ + 'libro.foto'}" th:text="${libro.foto}"></td>
+					<td class="bg-secondary text-center text-white align-middle" th:text="${libro.nombre}"></td>
+					<td class="bg-secondary text-center text-white align-middle" th:text="${libro.autor}"></td>
+					<td class="bg-secondary text-center text-white align-middle" th:text="${libro.genero}"></td>
+					<td class="bg-secondary text-center text-white align-middle" th:text="${libro.numero_ejemplares}">
+					</td>
+					<td class="bg-secondary text-center text-white align-middle" th:text="${libro.ISBN}"></td>
+					<td class="bg-secondary text-center text-white align-middle" th:href="@{/upload/ + 'libro.foto'}"
+						th:text="${libro.foto}"></td>
 					<td class="bg-secondary text-center align-middle">
 						<a class="text-center rounded-pill btn btn-warning" th:href="@{/libro/form/} + ${libro.id}">
 							Editar
@@ -88,7 +92,9 @@
 				</tr>
 			</tbody>
 		</table>
-		<nav th:replace="paginator-nav :: paginator"></nav>
+		<div class="d-flex justify-content-center">
+			<nav th:replace="paginator-nav :: paginator"></nav>
+		</div>
 	</div>
 
 	<!-- Script de bootstrap enlazado vía CDN-->

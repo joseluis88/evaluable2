@@ -17,41 +17,47 @@
 	<!-- Navigation bar bootstrap -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<div class="container-fluid px-5">
+
+
 			<div>
 				<img class="img-logo" th:src="@{/images/spring.png}" alt="Imagen de Spring para demo"></img>
 				<button class="my-3 btn btn-primary btn-lg"><a class="nav-link active" aria-current="page"
 						th:href="@{/home}">Inicio</a></button>
 				<button class="my-3 btn btn-warning btn-lg"><a class="nav-link active" aria-current="page"
-						th:href="@{/libro/listar}">Ver lista de Libros</a></button>
+						th:href="@{/usuario/listar}">Ver lista de Usuarios</a></button>
+
 			</div>
+
 		</div>
 	</nav>
-
 	<div class="bg-secondary">
 		<div class="container py-4 ">
 			<div class="card bf-light">
 				<h1>
 					<div class="card-header" th:text="${titulo}"></div>
 				</h1>
-				
 				<div class="card-body">
 					<p class="w-100">Foto:</p>
 					<br>
 					<div>						
 						<img class="img-thumbnail rounded float-left rounded mx-auto d-block w-auto  h-auto mw-50 mh-50"
-							th:src="@{'/upload/' + ${libro.foto}}" th:alt="${libro.foto}" />
+							th:src="@{'/upload/' + ${usuario.foto}}" th:alt="${usuario.foto}" />
 					</div>
-				
+
 					<ul class="list-group">
-						Nombre: <li class="list-group-item" th:text="${libro.nombre}"></li>
+						Nombre: <li class="list-group-item" th:text="${usuario.nombre}"></li>
 						<br>
-						Autor: <li class="list-group-item" th:text="${libro.autor}"> </li>
+						Apellidos: <li class="list-group-item" th:text="${usuario.apellidos}"> </li>
 						<br>
-						Genero: <li class="list-group-item" th:text="${libro.genero}"></li>
+						Edad: <li class="list-group-item" th:text="${usuario.edad}"></li>
 						<br>
-						Número ejemplares: <li class="list-group-item" th:text="${libro.numero_ejemplares}"></li>
+						Fecha de Alta: <li class="list-group-item" th:text="${usuario.fecha_alta}"></li>
 						<br>
-						ISBN: <li class="list-group-item" th:text="${libro.ISBN}"></li>
+						Fecha de Retirada del Libro: <li class="list-group-item"
+							th:text="${usuario.fecha_retirada_libro}"></li>
+						<br>
+						Fecha de Entrega del Libro: <li class="list-group-item"
+							th:text="${usuario.fecha_entrega_libro}"></li>
 					</ul>
 				</div>
 			</div>

@@ -12,91 +12,104 @@
 
 </head>
 
-<body class="mx-3">
 
-	<div>
-		<img th:src="@{/images/spring.png}" alt="Imagen de Spring para demo"></img>
-		<button class="my-3 btn btn-primary btn-lg"><a class="nav-link active" aria-current="page"
-				th:href="@{/home}">Inicio</a></button>
-		<button class="my-3 btn btn-info btn-lg"><a class="nav-link active" aria-current="page"
-				th:href="@{/libro/listar}">Listado Libros</a></button>
-	</div>
-	<h1 th:text="${titulo}"></h1>
+<body class="bg-secondary">
+	<!-- Navigation bar bootstrap -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid px-5">
 
 
-
-	<form th:action="@{/libro/form}" th:object="${libro}" method="post" enctype="multipart/form-data">
-
-		<table>
-			<tr>
-				<td>Nombre</td>
-				<td>
-					<input type="text" th:field="*{nombre}">
-				</td>
-				<td th:if="${#fields.hasErrors('nombre')}">
-					<small th:errors="*{nombre}" class="form-text text-danger"></small>
-				</td>
-			</tr>
-
-			<tr>
-				<td>Autor</td>
-				<td>
-					<input type="text" th:field="*{autor}">
-				</td>
-				<td th:if="${#fields.hasErrors('autor')}">
-					<small th:errors="*{autor}" class="form-text text-danger"></small>
-				</td>
-			</tr>
-
-			<tr>
-				<td>Genero</td>
-				<td>
-					<input type="text" th:field="*{genero}">
-				</td>
-				<td th:if="${#fields.hasErrors('genero')}">
-					<small th:errors="*{genero}" class="form-text text-danger"></small>
-				</td>
-			</tr>
-
-			<tr>
-				<td>Números Ejemplares</td>
-				<td>
-					<input type="number" th:field="*{numero_ejemplares}">
-				</td>
-				<td th:if="${#fields.hasErrors('numero_ejemplares')}">
-					<small th:errors="*{numero_ejemplares}" class="form-text text-danger"></small>
-				</td>
-			</tr>
-			<tr>
-				<td>ISBN</td>
-				<td>
-					<input type="text" th:field="*{ISBN}">
-				</td>
-				<td th:if="${#fields.hasErrors('ISBN')}">
-					<small th:errors="*{ISBN}" class="form-text text-danger"></small>
-				</td>
-			</tr>
-
-			<tr>
-				<td>Foto</td>
-				<td><input type="file" name="file" class="form-control" /></td>
-			</tr>
-
-			<tr>
-				<td>Botón</td>
-				<td>
-					<input type="submit" value="Guardar libro">
-				</td>
-			</tr>
+			<div class="container">
 
 
-		</table>
-		<input type="hidden" th:field="*{id}" />
+				<img class="img-logo" th:src="@{/images/spring.png}" alt="Imagen de Spring para demo"></img>
+				<button class="my-3 btn btn-primary btn-lg"><a class="nav-link active" aria-current="page"
+						th:href="@{/home}">Inicio</a></button>
+				<button class="my-3 btn btn-info btn-lg"><a class="nav-link active" aria-current="page"
+						th:href="@{/libro/listar}">Listado Libros</a></button>
+			</div>
+
+
+		</div>
+
+		</div>
+	</nav>
+	<div class="container text-white">
+		<h1 th:text="${titulo}"></h1>
+
+		<form th:action="@{/libro/form}" th:object="${libro}" method="post" enctype="multipart/form-data">
+
+			<table>
+				<tr>
+					<td class="float-end mx-3 my-2">Nombre: </td>
+					<td>
+						<input type="text" th:field="*{nombre}">
+					</td>
+					<td th:if="${#fields.hasErrors('nombre')}">
+						<small th:errors="*{nombre}" class="form-text text-danger"></small>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="float-end mx-3 my-2">Autor: </td>
+					<td>
+						<input type="text" th:field="*{autor}">
+					</td>
+					<td th:if="${#fields.hasErrors('autor')}">
+						<small th:errors="*{autor}" class="form-text text-danger"></small>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="float-end mx-3 my-2">Genero: </td>
+					<td>
+						<input type="text" th:field="*{genero}">
+					</td>
+					<td th:if="${#fields.hasErrors('genero')}">
+						<small th:errors="*{genero}" class="form-text text-danger"></small>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="float-end mx-3 my-2">Números Ejemplares: </td>
+					<td>
+						<input type="number" th:field="*{numero_ejemplares}">
+					</td>
+					<td th:if="${#fields.hasErrors('numero_ejemplares')}">
+						<small th:errors="*{numero_ejemplares}" class="form-text text-danger"></small>
+					</td>
+				</tr>
+				<tr>
+					<td class="float-end mx-3 my-2">ISBN: </td>
+					<td>
+						<input type="text" th:field="*{ISBN}">
+					</td>
+					<td th:if="${#fields.hasErrors('ISBN')}">
+						<small th:errors="*{ISBN}" class="form-text text-danger"></small>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="float-end mx-3 my-2">Foto: </td>
+					<td><input type="file" name="file" class="form-control" /></td>
+				</tr>
+
+				<tr>
+					<td class="float-end mx-3 my-4">Botón:</td>
+					<td>
+						<button type="submit" class="my-3 btn btn-warning btn-lg"><a class="nav-link active"
+								aria-current="page">Guardar usuario</a></button>
+					</td>
+				</tr>
+
+
+			</table>
+			<input type="hidden" th:field="*{id}" />
 
 
 
 
-	</form>
+		</form>
 
 </body>
 

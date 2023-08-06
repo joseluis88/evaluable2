@@ -1,32 +1,30 @@
 package com.midominio.evaluable2.app.controller.error;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/error")
 public class DemoErrorsController {
 	
-	
-	@GetMapping({"error404/","error404"})
-	public String error404(Model modelo) {
-		modelo.addAttribute("titulo","Error Titulo");
-		modelo.addAttribute("cabecera","Error Cabecera");
-		return "error/error400";
+	@GetMapping("/template-no-existe")
+	public String m1() {
+		return "template-no-existe";
 	}
 	
-	@GetMapping({"division0"})
-	public String division0(Model modelo) {
-		int x=8/0;
-		return "error/division0";
+	@GetMapping("/division-por-0")
+	public String m2() {
+		int x = 1/0;
+		// como no va a llegar al return, saltará antes el otro error
+		return "template-no existe";
 	}
 	
-	@GetMapping({"null"})
-	public String metodoNull(Model modelo) {
-		String string = null;
-		string.chars();
-		return "error/null";
+	@GetMapping("/null-pointer")
+	public String m3() {
+		String s = null;
+		s.length();
+		// como no va a llegar al return, saltará antes el otro error
+		return "template-no existe";
 	}
-	
-	
 }

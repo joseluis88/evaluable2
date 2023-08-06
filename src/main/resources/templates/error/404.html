@@ -5,39 +5,42 @@
 	<meta charset="UTF-8" />
 	<title>Error 404</title>
 	<!-- Hoja de estilos de bootstrap enlazada vía CDN-->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 	</link>
 </head>
 
 <body>
-	<hr>
-	<center><img class="img-centro" th:src="@{/images/libro.jpg}" alt="Imagen de un libro"></img></center>
-	<hr>
-	<h1>Se ha producido un Error 404. La web no existe</h1>
-	<hr>
-	<div th:text="${error + '. Esta web no se ha encontrado.'}"></div>
-	<hr>
-	<div th:text="${status}"></div>
-	<hr>
-	<div th:text="${'Fecha y hora del error: ' + timestamp}"></div>
-	<hr>
-	<div th:text="${'El mensaje del error es: ' + message}"></div>
-	<hr>
-	<div th:text="${path}"></div>
-	<hr>
+	<!-- Navigation bar bootstrap -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid px-5">
+			<div class="container">
+				<img class="img-logo" th:src="@{/images/spring.png}" alt="Imagen de Spring para demo"></img>
+				<button class="my-3 btn btn-primary btn-lg"><a class="nav-link active" aria-current="page"
+						th:href="@{/home}">Inicio</a></button>
+			</div>
+		</div>
+		</div>
+	</nav>
+	<div class="container">
+		<h1>Error 404</h1>
+		<div th:text="'Error: ' + ${error}"></div>
+		<div th:text="'Tipo de error:   '+  ${status}"></div>
+		<div th:text="'Fecha del error: '+  ${timestamp}"></div>
+		<div th:text="'Causa del error: '+  ${message}"></div>
+		<hr>
+		<div th:text="'Ruta Path: ' + ${path}"></div>
+	</div>
 
-	<center><a href="http://localhost:8080/"><img class="img-centro" th:src="@{/images/biblioteca.png}"
-				alt="Imagen de bienvenida de la biblioteca"></img></center></a>
-	<center><a href="http://localhost:8080/">Inicio</center></a>
-
-
-
+	
+	
+	
 	<!-- Script de bootstrap enlazado vía CDN-->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
 		crossorigin="anonymous"></script>
+
 </body>
 
 </html>

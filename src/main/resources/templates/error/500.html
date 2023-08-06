@@ -5,39 +5,37 @@
 	<meta charset="UTF-8" />
 	<title>Error 500</title>
 	<!-- Hoja de estilos de bootstrap enlazada vía CDN-->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 	</link>
 </head>
 
 <body>
-	<hr>
-	<center><img class="img-centro" th:src="@{/images/libro.jpg}" alt="Imagen de un libro"></img></center>
-	<hr>
-	<h1>Se ha producido un Error 500.</h1>
-	<hr>
-	<div th:text="${error}"></div>
-	<hr>
-	<div th:text="${status}"></div>
-	<hr>
-	<div th:text="${timestamp}"></div>
-	<hr>
-	<div th:text="${message}"></div>
-	<hr>
-	<div th:text="${trace}"></div>
-	<hr>
-	<center><a href="http://localhost:8080/"><img class="img-centro" th:src="@{/images/biblioteca.png}"
-				alt="Imagen de bienvenida de la biblioteca"></img></center></a>
-	<center><a href="http://localhost:8080/">Inicio</center></a>
-
+	<!-- Navigation bar bootstrap -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid px-5">
+			<div class="container">
+				<img class="img-logo" th:src="@{/images/spring.png}" alt="Imagen de Spring para demo"></img>
+				<button class="my-3 btn btn-primary btn-lg"><a class="nav-link active" aria-current="page"
+						th:href="@{/home}">Inicio</a></button>
+			</div>
+		</div>
+		</div>
+	</nav>
+	<div class="container">
+		<div th:text="${error}"></div>
+		<div th:text="${message}"></div>
+		<div th:text="${status}"></div>
+		<div th:text="${timestamp}"></div>
+		<hr>
+		<div th:text="${trace}"></div>
+	</div>
+	
 	<!-- Script de bootstrap enlazado vía CDN-->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
 		crossorigin="anonymous"></script>
-</body>
-
-</html>
 </body>
 
 </html>

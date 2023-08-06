@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import com.midominio.evaluable2.app.model.entity.Usuario;
 import com.midominio.evaluable2.app.service.IUsuarioService;
 import com.midominio.evaluable2.app.utils.paginator.PageRender;
@@ -109,6 +108,23 @@ public class UsuarioController {
 			flash.addFlashAttribute("warningDelete", "Usuario borrado con éxito");
 		}
 		return "redirect:/usuario/listar";
+	}
+	
+	@GetMapping("/ver/{id}")
+	public String verPorId(@PathVariable Long id, @RequestParam(defaultValue = "0") int page, Model model,
+			RedirectAttributes flash) {
+
+		Usuario usuario = usuarioService.findOne(id);
+
+		if (usuario == null) {
+			flash.addFlashAttribute("error", "Usuario inexistente");
+			return "redirect:/usuarios/listar";
+		}
+
+		model.addAttribute("titulo", "Mostrando el usuario");
+		model.addAttribute("usuario", usuario);
+
+		return "usuario/ver";
 	}
 
 }
