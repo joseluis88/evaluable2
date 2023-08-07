@@ -51,7 +51,7 @@
 
 					<td class="float-end mx-3 my-2">Nombre: </td>
 					<td>
-						<input type="text" th:field="*{nombre}">
+						<input class="w-100" type="text" th:field="*{nombre}">
 					</td>
 					<td th:if="${#fields.hasErrors('nombre')}">
 						<small th:errors="*{nombre}" class="form-text text-danger"></small>
@@ -64,7 +64,7 @@
 				<tr>
 					<td class="float-end mx-3 my-2">Apellidos:</td>
 					<td>
-						<input type="text" th:field="*{apellidos}">
+						<input class="w-100" type="text" th:field="*{apellidos}">
 					</td>
 					<td th:if="${#fields.hasErrors('apellidos')}">
 						<small th:errors="*{apellidos}" class="form-text text-danger"></small>
@@ -74,7 +74,7 @@
 				<tr>
 					<td class="float-end mx-3 my-2">Edad:</td>
 					<td>
-						<input type="text" th:field="*{edad}">
+						<input class="w-100" type="text" th:field="*{edad}">
 					</td>
 					<td th:if="${#fields.hasErrors('edad')}">
 						<small th:errors="*{edad}" class="form-text text-danger"></small>
@@ -84,7 +84,7 @@
 				<tr>
 					<td class="float-end mx-3 my-2">Fecha Alta Usuario:</td>
 					<td>
-						<input type="date" th:field="*{fecha_alta}">
+						<input class="w-100" type="date" th:field="*{fecha_alta}">
 					</td>
 					<td th:if="${#fields.hasErrors('fecha_alta')}">
 						<small th:errors="*{fecha_alta}" class="form-text text-danger"></small>
@@ -93,7 +93,7 @@
 				<tr>
 					<td class="float-end mx-3 my-2">Fecha Retirada Libro:</td>
 					<td>
-						<input type="date" th:field="*{fecha_retirada_libro}">
+						<input class="w-100" type="date" th:field="*{fecha_retirada_libro}">
 					</td>
 					<td th:if="${#fields.hasErrors('fecha_retirada_libro')}">
 						<small th:errors="*{fecha_retirada_libro}" class="form-text text-danger"></small>
@@ -102,7 +102,7 @@
 				<tr>
 					<td class="float-end mx-3 my-2">Fecha Entrega Libro:</td>
 					<td>
-						<input type="date" th:field="*{fecha_entrega_libro}">
+						<input class="w-100" type="date" th:field="*{fecha_entrega_libro}">
 					</td>
 					<td th:if="${#fields.hasErrors('fecha_entrega_libro')}">
 						<small th:errors="*{fecha_entrega_libro}" class="form-text text-danger"></small>

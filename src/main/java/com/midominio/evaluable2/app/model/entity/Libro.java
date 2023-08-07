@@ -22,17 +22,17 @@ public class Libro implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@NotEmpty(message = "Has metidos un nombre muy largo, máximo 15 carácteres")
+	@NotEmpty(message = "Has metido un nombre muy largo, máximo 15 carácteres")
 	@Size(min = 4, max = 15) // Número de caracteres
 	@Column(name = "nombre")
 	private String nombre;
 
-	@NotEmpty(message = "Has metidos unos apellidos muy largos, máximo 32 carácteres")
+	@NotEmpty(message = "Has metido unos apellidos muy largos, máximo 32 carácteres")
 	@Size(min = 4, max = 32)
 	@Column(name = "autor")
 	private String autor;
-	
-	@NotEmpty(message = "Has metidos un nombre muy largo, máximo 15 carácteres")
+
+	@NotEmpty(message = "Has metido un nombre muy largo, máximo 15 carácteres")
 	@Size(min = 4, max = 15) // Número de caracteres
 	@Column(name = "genero")
 	private String genero;
@@ -40,19 +40,14 @@ public class Libro implements Serializable {
 	@NotNull // equivalente a NotEmpty pero para los que no son String
 	@Column(name = "numero_ejemplares")
 	private int numero_ejemplares;
-	
-	@NotEmpty(message = "Has metidos un nombre muy largo, máximo 15 carácteres")
+
+	@NotEmpty(message = "Has metido un nombre muy largo, máximo 15 carácteres")
 	@Size(min = 10, max = 15) // Número de caracteres
 	@Column(name = "ISBN")
 	private String ISBN;
 
-	
-	
-	
-	
 	private String foto;
 
-	
 	public Long getId() {
 		return id;
 	}
@@ -68,7 +63,7 @@ public class Libro implements Serializable {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
+
 	public String getAutor() {
 		return autor;
 	}
@@ -92,7 +87,6 @@ public class Libro implements Serializable {
 	public void setNumero_ejemplares(int numero_ejemplares) {
 		this.numero_ejemplares = numero_ejemplares;
 	}
-		
 
 	public String getISBN() {
 		return ISBN;
