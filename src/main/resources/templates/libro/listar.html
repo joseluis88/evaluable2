@@ -76,8 +76,8 @@
 					<td class="bg-secondary text-center text-white align-middle" th:text="${libro.numero_ejemplares}">
 					</td>
 					<td class="bg-secondary text-center text-white align-middle" th:text="${libro.ISBN}"></td>
-					<td class="bg-secondary text-center text-white align-middle" th:href="@{/upload/ + 'libro.foto'}"
-						th:text="${libro.foto}"></td>
+					<td class="bg-secondary text-center text-white align-middle" th:if="${libro.foto.isEmpty()}">Sin Foto</td>
+					<td class="bg-secondary text-center text-white align-middle" th:if="${!libro.foto.isEmpty()}"><a class="btn btn-primary btn-sm" th:href="@{/libro/ver/} + ${libro.id}">Foto Libro</a></td>
 					<td class="bg-secondary text-center align-middle">
 						<a class="text-center rounded-pill btn btn-warning" th:href="@{/libro/form/} + ${libro.id}">
 							Editar
